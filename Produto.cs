@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
 
-namespace Atualizaçãoestoque
+namespace Produto
 {
 
-    class Produto
+    class produto
     {
         //Declaração das variaveis do produto
         public string Nome;
@@ -16,7 +16,7 @@ namespace Atualizaçãoestoque
         public int Quantidade;
 
         //Declaração do construtor
-        public Produto(string nome, double preco, int quantidade)
+        public produto(string nome, double preco, int quantidade)
         {
             Nome = nome;
             Preco = preco;
@@ -24,12 +24,12 @@ namespace Atualizaçãoestoque
         }
 
         //contrutor padrão
-        public Produto()
+        public produto()
         {
         }
 
         //Função para calcular o valor total do estoque
-        public double ValorTotalEmEstoque()
+        public double ValorTotalEstoque()
         {
             return Preco * Quantidade;
         }
@@ -43,7 +43,7 @@ namespace Atualizaçãoestoque
         //Função para remover produtos do estoque
         public void RemoverProduto(int qtd)
         {
-            Quantidade = Quantidade - qtd;
+            Quantidade -= qtd;
         }
 
         //Criando um formato para o ToString

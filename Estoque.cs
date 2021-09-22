@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace Estoque
 {
-    public class produto
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -17,7 +17,7 @@ namespace Estoque
             int quantidade = int.Parse(Console.ReadLine());
 
             // declarando classe de produtos
-            Produto p = new Produto(nome, preco, quantidade);
+            produto p = new produto(nome, preco, quantidade);
 
             // interaçao com usuario
             Console.WriteLine("Dados do produto: " + p);
