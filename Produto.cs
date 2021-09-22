@@ -5,51 +5,76 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
 
-namespace Produto
+namespace Estoque
 {
 
-    class produto
+    public class produto
     {
-        //Declaração das variaveis do produto
-        public string Nome;
-        public double Preco;
-        public int Quantidade;
+        //Declaração das variaveis nome, preço e quantidade
+        private string _nome;
+        private double _preco;
+        private int _quantidade;
 
         //Declaração do construtor
         public produto(string nome, double preco, int quantidade)
         {
-            Nome = nome;
-            Preco = preco;
-            Quantidade = quantidade;
+            _nome = nome;
+            _preco = preco;
+            _quantidade = quantidade;
         }
 
-        //contrutor padrão
+        //contrutor padrao
         public produto()
         {
+
+        }
+
+        //contrutor personalizado
+        public string GetNome()
+        {
+            return _nome;
+        }
+
+        //Criação de uma função para a variavel _nome
+        public void SetNome(string nome)
+        {
+            _nome = nome;
+        }
+
+        //função com get para ler o preço
+        public double GetPreco()
+        {
+            return _preco;
+        }
+
+        //função para ler a variavel _quantidade
+        public int GetQuantidade()
+        {
+            return _quantidade;
         }
 
         //Função para calcular o valor total do estoque
         public double ValorTotalEstoque()
         {
-            return Preco * Quantidade;
+            return _preco * _quantidade;
         }
 
         //Função para adicionar Produtos ao estoque
         public void AdicionarProduto(int qtd)
         {
-            Quantidade += qtd;
+            _quantidade += qtd;
         }
 
         //Função para remover produtos do estoque
         public void RemoverProduto(int qtd)
         {
-            Quantidade -= qtd;
+            _quantidade = _quantidade - qtd;
         }
 
-        //Criando um formato para o ToString
+        //finalizão do resultado
         public override string ToString()
         {
-            return Nome + ", R$ " + Preco.ToString("F2", CultureInfo.InvariantCulture) + ", " + Quantidade + " unidades, Total: R$ " + ValorTotalEstoque().ToString("F2", CultureInfo.InvariantCulture);
+            return _nome + ", R$ " + _preco.ToString("F2", CultureInfo.InvariantCulture) + ", " + _quantidade + " unidades, Total: R$ " + ValorTotalEstoque().ToString("F2", CultureInfo.InvariantCulture);
         }
     }
 }

@@ -32,7 +32,7 @@ namespace Estoque
             // resultado
             Console.WriteLine("Digite o número de produtos a serem removidos do estoque: ");
             qte = int.Parse(Console.ReadLine());
-            p.RemoverProdutos(qte);
+            p.RemoverProduto(qte);
 
             // resultado final
             Console.WriteLine("Dados do atualizados: " + p);
