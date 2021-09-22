@@ -10,59 +10,46 @@ namespace Atualizaçãoestoque
 
     class Produto
     {
-        //declaração de variaveis do produto
-        private string _nome;
-        private double _preco;
-        private int _quantidade;
+        //Declaração das variaveis do produto
+        public string Nome;
+        public double Preco;
+        public int Quantidade;
 
-        //construtor personalizado
+        //Declaração do construtor
         public Produto(string nome, double preco, int quantidade)
         {
-            _nome = nome;
-            _preco = preco;
-            _quantidade = quantidade;
+            Nome = nome;
+            Preco = preco;
+            Quantidade = quantidade;
         }
 
-        //utilizando do GET e SET
-        public string GetNome()
+        //contrutor padrão
+        public Produto()
         {
-            return _nome;
         }
 
-        public void SetName(string nome)
+        //Função para calcular o valor total do estoque
+        public double ValorTotalEmEstoque()
         {
-            _nome = nome;
+            return Preco * Quantidade;
         }
 
-        public int GetQuantidade()
+        //Função para adicionar Produtos ao estoque
+        public void AdicionarProduto(int qtd)
         {
-            return _quantidade;
+            Quantidade += qtd;
         }
 
-        public double ValorTotalEStoque()
+        //Função para remover produtos do estoque
+        public void RemoverProduto(int qtd)
         {
-            return _preco * _quantidade;
+            Quantidade = Quantidade - qtd;
         }
 
-        public void AdicionarProdutos(int quantidade)
-        {
-            _quantidade += quantidade;
-        }
-
-        public void RemoverProduto(int quantidade)
-        {
-            _quantidade -= quantidade;
-        }
-
-        // resoltado final
-
+        //Criando um formato para o ToString
         public override string ToString()
         {
-            return _nome + ", R$ " + _preco.ToString("F2", CultureInfo.InvariantCulture) + ", " + _quantidade + " unidades, Total: R$ " + ValorTotalEstoque().ToString("F2", CultureInfo.InvariantCulture);
+            return Nome + ", R$ " + Preco.ToString("F2", CultureInfo.InvariantCulture) + ", " + Quantidade + " unidades, Total: R$ " + ValorTotalEstoque().ToString("F2", CultureInfo.InvariantCulture);
         }
-
     }
-    
-
-
 }
