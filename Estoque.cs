@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace Estoque
 {
-    public class produto
+    public class Produto
     {
         static void Main(string[] args)
         {
@@ -24,7 +24,7 @@ namespace Estoque
 
             Console.WriteLine("Digite o número de produtos a ser adicionado ao estoque: ");
             int qte = int.Parse(Console.ReadLine());
-            p.AdicionarProduto(qte);
+            p.AdicionarProduto (qte);
 
             // resultado 
             Console.WriteLine("Dados do atualizados: " + p);
