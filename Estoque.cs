@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace Estoque
 {
-    public class produto
+    public class Produto
     {
         static void Main(string[] args)
         {
