@@ -5,64 +5,57 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
 
-namespace Atualizaçãoestoque
+namespace Estoque
 {
 
-    class Produto
+    class produto
     {
-        //declaração de variaveis do produto
+        // declarando variaveis nome, preço e a quantidade
         private string _nome;
-        private double _preco;
-        private int _quantidade;
+        public double Preco;
+        public int Quantidade;
 
-        //construtor personalizado
-        public Produto(string nome, double preco, int quantidade)
+        // construtor do usuario
+        public produto(string nome, double preco, int quantidade)
         {
-            _nome = nome;
-            _preco = preco;
-            _quantidade = quantidade;
+            Nome = nome;
+            Preco = preco;
+            Quantidade = quantidade;
+        }
+        // Atualização no codigo que melhora na construtor do usuario
+        public string Nome
+        {
+            get { return _nome; }
+            set
+            {
+                if (value != null && value.Length > 1) { _nome = value; }
+            }
+        }
+        // construtor do valor
+        public double ValorTotalEstoque()
+        {
+            // claculo
+            return Preco * Quantidade;
         }
 
-        //utilizando do GET e SET
-        public string GetNome()
+        // construtor da qauntidade
+        public void AdicionarProduto(int quantidade)
         {
-            return _nome;
+            // claculo
+            Quantidade += quantidade;
         }
 
-        public void SetName(string nome)
-        {
-            _nome = nome;
-        }
-
-        public int GetQuantidade()
-        {
-            return _quantidade;
-        }
-
-        public double ValorTotalEStoque()
-        {
-            return _preco * _quantidade;
-        }
-
-        public void AdicionarProdutos(int quantidade)
-        {
-            _quantidade += quantidade;
-        }
-
+        // construtor
         public void RemoverProduto(int quantidade)
         {
-            _quantidade -= quantidade;
+            // claculo
+            Quantidade = Quantidade - quantidade;
         }
 
         // resoltado final
-
         public override string ToString()
         {
-            return _nome + ", R$ " + _preco.ToString("F2", CultureInfo.InvariantCulture) + ", " + _quantidade + " unidades, Total: R$ " + ValorTotalEstoque().ToString("F2", CultureInfo.InvariantCulture);
+            return Nome + ", R$ " + Preco.ToString("F2", CultureInfo.InvariantCulture) + ", " + Quantidade + " unidades, Total: R$ " + ValorTotalEstoque().ToString("F2", CultureInfo.InvariantCulture);
         }
-
     }
-    
-
-
 }
